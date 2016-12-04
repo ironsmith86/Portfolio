@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/ironsmith86/Portfolio/issues"
   },
-  "homepage": "https://github.com/ironsmith86/Portfolio#readme"
+  "homepage": "https://github.com/ironsmith86/Portfolio#readme",
+  "devDependencies": {
+    "browserify": "^13.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-util": "^3.0.7"
+  }
 }
