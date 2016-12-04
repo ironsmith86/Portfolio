@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/ironsmith86/Portfolio#readme",
   "devDependencies": {
-    "browserify": "^13.1.1",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
     "gulp-sass": "^2.3.2",
