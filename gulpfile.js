@@ -14,21 +14,21 @@ htmlSources = ['builds/development/*.html'];
 sassSources = ['components/sass/style.scss'];
 jsSources = ['components/scripts/*.js'];
 
-gulp.task('connect', function(){
+gulp.task('connect', () => {
     connect.server({
         root: 'builds/development/',
         livereload: true
     })
 });
 
-gulp.task('sass', function(){
+gulp.task('sass', () => {
     gulp.src(sassSources)
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('builds/development/css/'))
         .pipe(connect.reload());    
 })
 
-gulp.task('jsconcat', function(){
+gulp.task('jsconcat', () => {
     gulp.src(jsSources)
         .pipe(babel({
             presets: ['es2015']
@@ -38,3 +38,16 @@ gulp.task('jsconcat', function(){
         .pipe(gulp.dest('builds/development/js/'))
         .pipe(connect.reload());
 })
+
+gulp.task('html', () => {
+    gulp.src(htmlSources)
+        .pipe(connect.reload());
+});
+
+gulp.task('watch', () => {
+    gulp.watch('components/sass/*.scss',['sass']);
+    gulp.watch(jsSources,['jsconcat']);
+    gulp.watch(htmlSources,['html']);
+});
+
+gulp.task('default', ['connect','sass','jsconcat','html', 'watch']);
